@@ -499,7 +499,7 @@ client.on("message", (message) => {
 
         message.guild.createChannel(`ticket-${message.author.username}`, "text").then(c => {
 
-            let role = message.guild.roles.find("name", "CRITOS king);
+            let role = message.guild.roles.find("name", "Support Team);
 
             let role2 = message.guild.roles.find("name", "@everyone");
 
