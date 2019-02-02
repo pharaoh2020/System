@@ -7,6 +7,29 @@ const prefix = "$"
 
 client.login(process.env.BOT_TOKEN);  //لا تحط التوكن حقك هنا
 
+
+
+client.on('ready',  () => {
+
+  console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'); 
+
+  console.log('by DG');
+
+  console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+
+  console.log(`Logged in as  * [ " ${client.user.username} " ] servers! [ " ${client.guilds.size} " ]`);
+
+  console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+
+  console.log('is online')
+
+client.user.setStatus("dnd");
+
+});
+
+
+
+
 client.on('ready', function(){
     var ms = 10000 ;
     var setGame = ['System ',' |DG ' ];
