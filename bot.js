@@ -725,3 +725,16 @@ client.on("message", (message) => {
  
 
 });
+
+
+client.on('message',async message => {
+var prefix = "$"//هنا حط ال����رفكس حقك
+var codes = message.guild.roles.filter( r=>r.name.toLowerCase().indexOf(message.content.toLowerCase().split(' ').slice(1).join(" ").toLowerCase())>-1 ).first(); 
+if(message.content.startsWith(prefix + "rrole")) {//بادئة الامر الاول
+await message.channel.send(`**🔄 | تـــــ إزالة رتبة ــم undefined من الكل **`);
+message.guild.members.forEach(m => {m.removeRole(codes)});
+}
+if(message.content.startsWith(prefix + "arole")) {//بادئة الامر الثاني
+await message.channel.send(`**🔄 | تـــــ إضافة رتبة ــم undefined للكل **`);
+message.guild.members.forEach(m => {m.addRole(codes)});
+}});
