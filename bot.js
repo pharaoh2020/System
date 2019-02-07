@@ -727,3 +727,42 @@ client.on("message", (message) => {
 });
 
 
+
+
+lient.on("message", message => {
+    if(message.author.bot) return;
+    if(message.channel.type === 'dm') return;
+  let prefix = '$'; //البرفكس
+  let msgarray = message.content.split(" ");
+  let cmd = msgarray[0];
+  let args = msgarray.slice(1);
+  if(cmd === `${prefix}warn`){//الامر
+    
+    
+  
+    let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+  if(!rUser) return message.channel.send("Couldn't find users.");
+      let reason = args.join(" ").slice(22);
+  
+      let reportembed = new Discord.RichEmbed()
+      .setDescription("Warn")
+      .setColor("RANDOM")
+      .addField("Warn User", `${rUser} with ID: ${rUser.id}`)
+      .addField("Warn By", `${message.author} with ID: ${message.author.id}`)
+      .addField("Channel", message.channel)
+      .addField("Time", message.createdAt)
+      .addField("Reason",`${reason}`)
+      
+      
+      let reportchannel = message.guild.channels.find(`name`,"𝑾𝑨𝑹𝑵 𝑹𝑶𝑶𝑴"); //حط هنا اسم روح اللوج
+      if(!reportchannel) return message.channel.send("Couldn't find `log` channel. "); //حط هنا اسم روم اللوج
+      
+      message.delete().catch(O_o=>{});
+      reportchannel.send(reportembed);
+      let role = message.guild.roles.find(`name`, 'MOD'); //حط هنا اسم الرتبة
+      if(!role) return message.guild.channel.send("Could't find 'Head MOD' role."); //حط هنا اسم الرتبة
+      rUser.addRole(role);
+      
+          return;
+      }
+      });
